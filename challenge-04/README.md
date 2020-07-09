@@ -113,21 +113,21 @@ mostrar quantos assentos ainda podem ser ocupados, com a frase:
 citado acima, no lugar de "pessoas".
 */
   addPassageiros(nPassageiros) {
-    let assentosOcupados = carro.quantidadePessoas + nPassageiros;
-    let assentosDisponiveis = carro.assentos - carro.quantidadePessoas;
-    let strPessoa = assentosDisponiveis === 1 ? "pessoa" : "pessoas";
+    let lugaresPreenchidos = carro.quantidadePessoas + npessoas;
+    let lugaresLivres = carro.assentos - carro.quantidadePessoas;
+    let strPessoa = lugaresLivres === 1 ? "pessoa" : "pessoas";
 
-    if (carro.quantidadePessoas >= carro.assentos) {
-      return `O carro está lotado!`;
+    if (lugaresPreenchidos > carro.assentos) {
+      return `Só cabem mais ${lugaresLivres} ${strPessoa}`;
     }
 
-    if (assentosOcupados > carro.assentos) {
-      return `Só cabem mais ${assentosDisponiveis} ${strPessoa}`;
+    if (lugaresPreenchidos >= carro.assentos) {
+      return `O carro está lotado!!`;
     }
 
-    carro.quantidadePessoas += nPassageiros;
+    carro.quantidadePessoas += npessoas;
 
-    return `Já temos ${carro.quantidadePessoas} pessoas no carro!`;
+    return `Ja temos ${carro.quantidadePessoas} pessoas no carro!`;
   },
 };
 
@@ -167,11 +167,11 @@ carro.addPassageiros(4);
 carro.addPassageiros(5);
 
 // Tire 4 pessoas do carro.
-carro.addPassageiros(-4); 
+carro.addPassageiros(-4);
 
 // Adicione 10 pessoas no carro.
-carro.addPassageiros(10);// Só cabem mais 4 pessoas! 
-    
+carro.addPassageiros(10);// Só cabem mais 4 pessoas!
+
 // Quantas pessoas temos no carro?
  carro.quantidadePessoas; //1
-
+```
